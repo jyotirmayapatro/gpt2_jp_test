@@ -18,7 +18,8 @@ def generate_response(prompt, max_length, temperature):
         inputs,
         max_length=max_length,
         temperature=temperature,
-        num_return_sequences=1
+        num_return_sequences=1,
+        do_sample=True
     )
  
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
@@ -29,7 +30,7 @@ def generate_response(prompt, max_length, temperature):
 st.title("JP's GPT-2 Text Generation App")
 
 # user prompt input
-prompt = st.text_input("Enter your prompt:", value="Once upon a time")
+prompt = st.text_input("Enter your prompt:", value="type here.......")
 
 # token details
 token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=30)
