@@ -36,28 +36,31 @@ prompt = st.text_input("Enter your prompt:", value="")
 token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=30)
 
 
-# Wrap the input fields in a form to capture Enter key as a submission event
+# Wrap the input fields in a form to capture the Enter key as a submission event
 with st.form(key="my_form"):
-    # user prompt input inside the form
+    # User prompt input inside the form
     prompt = st.text_input("Enter your prompt:", value="")
 
-    # token details inside the form
+    # Token details inside the form
     token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=30)
 
-    # submit button inside the form
+    # Submit button inside the form
     submit_button = st.form_submit_button(label="Generate Responses")
 
-# Only process and display responses if the submit button is clicked
+# Check if the form is submitted and only then generate the responses
 if submit_button:
-    # # # high temperature/creative
-    st.subheader("Creative Response :")
-    creative_response = generate_response(prompt, token_length, temperature=0.9)
-    st.write(creative_response)
+    if prompt:  # Check if the user has entered a prompt
+        # High temperature/creative response
+        st.subheader("Creative Response:")
+        creative_response = generate_response(prompt, token_length, temperature=1.5)
+        st.write(creative_response)
 
-    # # # low temperature/predicted
-    st.subheader("Predictable Response :")
-    predictable_response = generate_response(prompt, token_length, temperature=0.1)
-    st.write(predictable_response)
+        # Low temperature/predictable response
+        st.subheader("Predictable Response:")
+        predictable_response = generate_response(prompt, token_length, temperature=0.1)
+        st.write(predictable_response)
+    else:
+        st.warning("Please enter a prompt to generate responses.")
 # button
 # Ref: https://docs.streamlit.io
 # if st.button("Generate Responses"):
