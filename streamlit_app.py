@@ -39,10 +39,10 @@ token_length = st.number_input("Number of tokens to generate:", min_value=3, max
 if st.button("Generate Responses"):
     # # # high temperature/creative
     st.subheader("Creative Response :")
-    creative_response = generate_response(prompt, token_length, temperature=1.5)
+    creative_response = generate_response(prompt, token_length, temperature=0.9)
     st.write(creative_response)
 
     # # # low temperature/predicted
     st.subheader("Predictable Response :")
-    predictable_response = generate_response(prompt, token_length, temperature=0.2)
+    predictable_response = generate_response(prompt, token_length, temperature=0.1)
     st.write(predictable_response)
