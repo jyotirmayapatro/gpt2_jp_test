@@ -36,16 +36,18 @@ prompt = st.text_input("Enter your prompt:", value="")
 token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=30)
 
 
+# Wrap the input fields in a form to capture Enter key as a submission event
 with st.form(key="my_form"):
-    # user prompt input
+    # user prompt input inside the form
     prompt = st.text_input("Enter your prompt:", value="")
 
-    # token details
+    # token details inside the form
     token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=30)
 
-    # Add a submit button to the form to catch the "Enter" key event
+    # submit button
     submit_button = st.form_submit_button(label="Generate Responses")
 
+# Only process and display responses if the submit button is clicked
 if submit_button:
     # # # high temperature/creative
     st.subheader("Creative Response :")
