@@ -43,5 +43,5 @@ if st.button("Generate Responses"):
 
     # # # low temperature/predicted
     st.subheader("Predictable Response :")
-    predictable_response = generate_response(prompt, token_length, temperature=0.1)
+    predictable_response = generate_response(prompt, token_length, temperature=0.2)
     st.write(predictable_response)
