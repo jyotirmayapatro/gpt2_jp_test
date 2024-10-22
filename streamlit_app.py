@@ -27,7 +27,7 @@ def generate_response(prompt, max_length, temperature):
 st.title("JP's GPT-2 Text Generation App")
 
 # user prompt input
-prompt = st.text_input("Enter your prompt:", value="Once upon a time")
+prompt = st.text_input("Enter your prompt:")
 
 # token details
 token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=30)
