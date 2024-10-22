@@ -17,7 +17,7 @@ def generate_response(prompt, max_length, temperature):
         inputs,
         max_length=max_length,
         temperature=temperature,
-        num_return_sequences=2
+        num_return_sequences=1
     )
  
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
