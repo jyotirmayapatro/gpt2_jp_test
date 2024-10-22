@@ -44,7 +44,7 @@ with st.form(key="my_form"):
     # token details inside the form
     token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=30)
 
-    # submit button
+    # submit button inside the form
     submit_button = st.form_submit_button(label="Generate Responses")
 
 # Only process and display responses if the submit button is clicked
