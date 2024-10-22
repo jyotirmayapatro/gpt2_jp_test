@@ -30,7 +30,7 @@ st.title("JP's GPT-2 Text Generation App")
 prompt = st.text_input("Enter your prompt:")
 
 # token details
-token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=10)
+token_length = st.number_input("Number of tokens to generate:", min_value=10, max_value=150, value=50)
 
 # button
 if st.button("Generate Responses"):
@@ -41,5 +41,5 @@ if st.button("Generate Responses"):
 
     # # # low temperature/predicted
     st.subheader("Predictable Response :")
-    predictable_response = generate_response(prompt, token_length, temperature=0.3)
+    predictable_response = generate_response(prompt, token_length, temperature=0.2)
     st.write(predictable_response)
