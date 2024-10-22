@@ -17,7 +17,7 @@ def generate_response(prompt, max_length, temperature):
         inputs,
         max_length=max_length,
         temperature=temperature,
-        num_return_sequences=1
+        num_return_sequences=2
     )
  
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
@@ -43,5 +43,5 @@ if st.button("Generate Responses"):
 
     # # # low temperature/predicted
     st.subheader("Predictable Response :")
-    predictable_response = generate_response(prompt, token_length, temperature=0.2)
+    predictable_response = generate_response(prompt, token_length, temperature=0.1)
     st.write(predictable_response)
