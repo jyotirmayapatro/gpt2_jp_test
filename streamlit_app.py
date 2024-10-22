@@ -27,7 +27,7 @@ def generate_response(prompt, max_length, temperature):
 ### App details ### 
 # Ref: https://github.com/dataprofessor/streamlit-freecodecamp-course/blob/main/app.py
 # App name
-st.title("JP's GPT-2 Text Generation App")
+st.title("JP's GPT-2 App")
 
 # user prompt input
 prompt = st.text_input("Enter your prompt:", value="")
@@ -35,9 +35,18 @@ prompt = st.text_input("Enter your prompt:", value="")
 # token details
 token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=30)
 
-# button
-# Ref: https://docs.streamlit.io
-if st.button("Generate Responses"):
+
+with st.form(key="my_form"):
+    # user prompt input
+    prompt = st.text_input("Enter your prompt:", value="")
+
+    # token details
+    token_length = st.number_input("Number of tokens to generate:", min_value=3, max_value=150, value=30)
+
+    # Add a submit button to the form to catch the "Enter" key event
+    submit_button = st.form_submit_button(label="Generate Responses")
+
+if submit_button:
     # # # high temperature/creative
     st.subheader("Creative Response :")
     creative_response = generate_response(prompt, token_length, temperature=0.9)
@@ -47,3 +56,15 @@ if st.button("Generate Responses"):
     st.subheader("Predictable Response :")
     predictable_response = generate_response(prompt, token_length, temperature=0.1)
     st.write(predictable_response)
+# button
+# Ref: https://docs.streamlit.io
+# if st.button("Generate Responses"):
+    # # # high temperature/creative
+#     st.subheader("Creative Response :")
+#     creative_response = generate_response(prompt, token_length, temperature=0.9)
+#     st.write(creative_response)
+
+    # # # low temperature/predicted
+#       st.subheader("Predictable Response :")
+#       predictable_response = generate_response(prompt, token_length, temperature=0.1)
+#       st.write(predictable_response)
